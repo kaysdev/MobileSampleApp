@@ -10,6 +10,17 @@
 .movieList:last-child{
 	margin-bottom:15px;
 }
+.form-control , .form-control:hover
+{
+    border-color: hsl(0,0%,80%) !important;
+}
+.movieList:hover {
+    background-color: #DEEBFF;
+}
+.movieList
+{
+    padding-bottom: 10px;
+}
 
 .stars {
     position: relative;
@@ -85,3 +96,20 @@ li {
   display: table;
 }
 
+.css-1r4vtzz {
+width: 100% !important;
+border: 1px solid #ced4da !important;
+}
+.css-48ayfv
+{
+     width: 100% !important;
+     border: 1px solid #ced4da !important;
+}
+.rating-star > div > div:nth-child(2), .genre-star > div > div:nth-child(2){
+    border: 1px solid !important;
+    width: 100% !important;
+}
+.css-1jllj6i-control, .css-1jllj6i-control:hover
+{
+    border-color: hsl(0,0%,80%) !important;
+}

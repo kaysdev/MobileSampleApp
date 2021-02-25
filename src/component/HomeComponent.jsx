@@ -46,7 +46,7 @@ const Home = () => {
                   options={Rating} isSearchable={false} placeholderButtonLabel="Rating"
 				onChange={handleRating} />
 			</div>
-			<div className="col-md-3">
+			<div className="col-md-3 genre-star">
 				<ReactMultiSelectCheckboxes
                   options={Category} isSearchable={false} placeholderButtonLabel="Genre"
 				onChange={handleCategory} />
