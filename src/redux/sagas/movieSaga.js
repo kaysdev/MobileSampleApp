@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 
 function getApi() {
 	return fetch('movie.json', {
@@ -21,7 +21,7 @@ function* fetchMovies(action) {
 			tempMovies.map((item) => {
 				let isContained = false
 				action.category.forEach((mov, i) => {
-					if (item.category.toLowerCase() === mov.name.toLowerCase()) {
+					if (item.category.toLowerCase() == mov.name.toLowerCase()) {
 						isContained = true
 
 					}
