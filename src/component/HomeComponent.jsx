@@ -43,12 +43,12 @@ const Home = () => {
 			</div>
 			<div className="col-md-3 rating-star">
 				<ReactMultiSelectCheckboxes 
-                  options={Rating} isSearchable={false}
+                  options={Rating} isSearchable={false} placeholderButtonLabel="Rating"
 				onChange={handleRating} />
 			</div>
 			<div className="col-md-3">
 				<ReactMultiSelectCheckboxes
-                  options={Category} isSearchable={false}
+                  options={Category} isSearchable={false} placeholderButtonLabel="Genre"
 				onChange={handleCategory} />
 			</div>
 		</div>
