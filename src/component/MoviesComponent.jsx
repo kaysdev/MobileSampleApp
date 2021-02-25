@@ -10,13 +10,13 @@ const Movies = (props) => {
 	const error = useSelector(state => state.movies.error);
 	useEffect(() => {
 		dispatch(getMovies(props.search, props.category, props.rating));
-	}, [props.search]);
+	}, [dispatch, props.search, props.category, props.rating]);
 
 	return (
 		<div style={{ border: "1px solid" }}>
 			{movies.loading && <p>Loading...</p>}
 			{movies.length > 0 && movies.map((movie) => (
-				<div onClick={() => props.selectMoview(movie.title, movie.category , movie.rating)} className="movieList">
+				<div onClick={() => props.selectMoview(movie.title, movie.category , movie.rating)} className="movieList" key={movie.title}>
 					<Card movie={movie} key={movie.id} />
 				</div>
 

@@ -3,7 +3,7 @@ import React from 'react';
 const Card = (props) => {
 	const percent = props.movie.rating*10+'%';
 	return(
-		<div className="row" key={props.movie.id}>
+		<div className="row">
 			<div className="col-md-9">
 				<div className="card-body">
 					<div className="card-title">{props.movie.title}</div>

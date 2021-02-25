@@ -17,15 +17,21 @@ function* fetchMovies(action) {
 		let tempCategory = []
 		let tempRating = []
 		let tempMovies = movies.filter(item => item.title.toLowerCase().includes(action.search.toLowerCase()));
-		if (action.category && action.category.length > 0) {
-			tempMovies.map((item) => {
+		if (action.category && action.category.length > 0 ) {
+			tempMovies.forEach((item, j) => {
 				let isContained = false
-				action.category.forEach((mov, i) => {
-					if (item.category.toLowerCase() === mov.label.toLowerCase()) {
-						isContained = true
-
+				if(action.category.length === 1 && action.category[0].label === 'Any Genre'){
+					isContained = true
+				}
+				else{
+					if(action.category !== undefined){
+						action.category.forEach((mov, i) => {
+							if (item.category.toLowerCase() === mov.label.toLowerCase()) {
+								isContained = true
+							}
+						});
 					}
-				});
+				}
 				if (isContained) {
 					tempCategory.push(item)
 				}
@@ -34,13 +40,24 @@ function* fetchMovies(action) {
 			tempCategory = tempMovies
 		}
 		if (action.rating && action.rating.length > 0) {
-			tempCategory.map((item) => {
+			tempCategory.forEach((item, j) => {
 				let isContained = false
-				action.rating.forEach((rate, i) => {
-					if (item.rating === rate.value) {
-						isContained = true
+				if(action.rating.length === 1 && action.rating[0].label === 'Any Rating'){
+					isContained = true;
+				}
+				else{
+					if(action.rating !== undefined)
+					{
+						action.rating.forEach((rate, i) => {
+							let startRate = rate.value;
+							let endRate = rate.value + 0.9;
+							
+							if (item.rating >= startRate && item.rating <= endRate) {
+								isContained = true;
+							}
+						});
 					}
-				});
+				}
 				if (isContained) {
 					tempRating.push(item)
 				}

@@ -43,7 +43,7 @@ const Home = () => {
 	return (
 		<div className="row">
 			<div className="col-md-6">
-				<input type="text" className="form-control" onChange={handleChange} value={search} style={{ width: '100%' }} />
+				<input type="text" className="form-control" onChange={handleChange} value={search} style={{ width: '100%' }} placeholder="Search Movie..." />
 				{showSuggestions && <Movies search={search} category={category} rating={rating} selectMoview={(text, category, rating) => {
 					setSuggestion(false)
 					setSearchTerm(text)
@@ -55,12 +55,12 @@ const Home = () => {
 				<ReactMultiSelectCheckboxes 
                   options={[...Rating]} isSearchable={false} placeholderButtonLabel="Rating"
 				  getDropdownButtonLabel={getDropdownButtonLabel}
-				onChange={handleRating} />
+				  hideSearch={true} onChange={handleRating} />
 			</div>
 			<div className="col-md-3 genre-star">
 				<ReactMultiSelectCheckboxes
                   options={Category} isSearchable={false} placeholderButtonLabel="Genre"
-				onChange={handleCategory} />
+				  hideSearch={true} onChange={handleCategory} />
 			</div>
 		</div>
 	)

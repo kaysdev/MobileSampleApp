@@ -1,5 +1,9 @@
 export const Category =[
 	{
+	  value: 0,
+	  label: 'Any genre'
+	},
+	{
 	  value: 1,
 	  label: 'Action'
 	},{

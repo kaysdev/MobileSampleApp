@@ -1,7 +1,7 @@
 export const StarRating =[
 	{
 	  value: 0,
-	  label: ''
+	  label: 'Any rating'
 	},{
 	  value: 1,
 	  label: ''
