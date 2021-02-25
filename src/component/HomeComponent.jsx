@@ -30,6 +30,16 @@ const Home = () => {
 		setCategory(option)
 	};
 
+	function getDropdownButtonLabel({ placeholderButtonLabel, value }) {
+		if (value === undefined){
+			return `${placeholderButtonLabel}: Any`;
+		}
+		else
+		{
+			return `${placeholderButtonLabel}: ${value.length} selected`;
+		}
+	}
+	  
 	return (
 		<div className="row">
 			<div className="col-md-6">
@@ -43,7 +53,8 @@ const Home = () => {
 			</div>
 			<div className="col-md-3 rating-star">
 				<ReactMultiSelectCheckboxes 
-                  options={Rating} isSearchable={false} placeholderButtonLabel="Rating"
+                  options={[...Rating]} isSearchable={false} placeholderButtonLabel="Rating"
+				  getDropdownButtonLabel={getDropdownButtonLabel}
 				onChange={handleRating} />
 			</div>
 			<div className="col-md-3 genre-star">
