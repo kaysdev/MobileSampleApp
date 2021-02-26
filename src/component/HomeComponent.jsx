@@ -17,7 +17,9 @@ const Home = () => {
 		}
 		setSearchTerm(event.target.value);
 	};
-	
+	const blurInput = event => {
+		setSuggestion(false)
+	}
 	const handleRating = option => {
 		setSuggestion(false)
 		setSearchTerm("")
@@ -32,18 +34,24 @@ const Home = () => {
 
 	function getDropdownButtonLabel({ placeholderButtonLabel, value }) {
 		if (value === undefined){
-			return `${placeholderButtonLabel}: Any`;
+			return `${placeholderButtonLabel}`;
 		}
 		else
 		{
-			return `${placeholderButtonLabel}: ${value.length} selected`;
+			if(value.length > 0){
+				return `${placeholderButtonLabel}: ${value.length} selected`;
+			}
+			else
+			{
+				return `${placeholderButtonLabel}`;
+			}
 		}
 	}
 	  
 	return (
 		<div className="row">
 			<div className="col-md-6">
-				<input type="text" className="form-control" onChange={handleChange} value={search} style={{ width: '100%' }} placeholder="Search Movie..." />
+				<input type="text" className="form-control" onChange={handleChange} value={search} style={{ width: '100%' }} onBlur={blurInput} placeholder="Search Movie..." />
 				{showSuggestions && <Movies search={search} category={category} rating={rating} selectMoview={(text, category, rating) => {
 					setSuggestion(false)
 					setSearchTerm(text)

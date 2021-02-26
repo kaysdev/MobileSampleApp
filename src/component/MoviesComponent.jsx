@@ -21,7 +21,7 @@ const Movies = (props) => {
 				</div>
 
 			))}
-			{movies.length === 0 && !loading && <p>No movie available!</p>}
+			{movies.length === 0 && !loading && <div className="card-body">No movie available!</div>}
 			{error && !loading && <p>{error}</p>}
 		</div>
 	)

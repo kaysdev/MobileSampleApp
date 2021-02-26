@@ -20,7 +20,7 @@ function* fetchMovies(action) {
 		if (action.category && action.category.length > 0 ) {
 			tempMovies.forEach((item, j) => {
 				let isContained = false
-				if(action.category.length === 1 && action.category[0].label === 'Any Genre'){
+				if(action.category.length === 1 && action.category[0].label === 'Any genre'){
 					isContained = true
 				}
 				else{
@@ -42,7 +42,7 @@ function* fetchMovies(action) {
 		if (action.rating && action.rating.length > 0) {
 			tempCategory.forEach((item, j) => {
 				let isContained = false
-				if(action.rating.length === 1 && action.rating[0].label === 'Any Rating'){
+				if(action.rating.length === 1 && action.rating[0].label === 'Any rating'){
 					isContained = true;
 				}
 				else{
